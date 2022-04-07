@@ -27,7 +27,7 @@ namespace TodoListApi.Controllers
         }
 
         [HttpGet("get-task-by-id/{id}")]
-        public IActionResult GetTaskById(string id)
+        public IActionResult GetTaskById(Guid id)
         {
             var task = _taskService.GetTaskById(id);
             return Ok(task);
@@ -41,13 +41,13 @@ namespace TodoListApi.Controllers
         }
 
         [HttpPut("UpdateTask/{id}")]
-        public IActionResult UpdateTaskBYId(string id , [FromBody] TaskItem task)
+        public IActionResult UpdateTaskBYId(Guid id , [FromBody] TaskItem task)
         {
             var updatedTask = _taskService.UpdateTaskById(id, task);
             return Ok(updatedTask);
         }
         [HttpDelete("DeleteTask/{id}")]
-        public IActionResult DeleteTaskById(string id)
+        public IActionResult DeleteTaskById(Guid id)
         {
             _taskService.DeleteTaskById(id);
             return Ok();

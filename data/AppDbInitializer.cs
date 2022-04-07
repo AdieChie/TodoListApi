@@ -19,7 +19,7 @@ using(var serviceScope= applicationBuilder.ApplicationServices.CreateScope())
                 {
                     context.Tasks.AddRange(new TaskItem()
                     {
-                        Id = "qwert123",
+                       // Id = "qwert123",
                         Title = "1st task",
                         StartDate = DateTime.Now,
                         EndDate = DateTime.Now,

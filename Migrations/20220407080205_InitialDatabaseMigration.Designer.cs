@@ -10,7 +10,7 @@ using TodoListApi.data;
 namespace TodoListApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220406170050_InitialDatabaseMigration")]
+    [Migration("20220407080205_InitialDatabaseMigration")]
     partial class InitialDatabaseMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,8 +23,9 @@ namespace TodoListApi.Migrations
 
             modelBuilder.Entity("TodoListApi.models.TaskItem", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Category")
                         .HasColumnType("nvarchar(max)");

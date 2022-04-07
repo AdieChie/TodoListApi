@@ -18,7 +18,7 @@ namespace TodoListApi.data.services
         {
             var _task = new TaskItem()
             {
-                Id = task.Id,
+               // Id = task.Id,
                 Title = task.Title,
                 StartDate = task.StartDate,
                 EndDate = task.EndDate,
@@ -37,13 +37,13 @@ namespace TodoListApi.data.services
             
         }
 
-        public TaskItem GetTaskById(string id)
+        public TaskItem GetTaskById(Guid id)
         {
             return _context.Tasks.FirstOrDefault(n=> n.Id == id);
 
         }
 
-        public TaskItem UpdateTaskById(string id , TaskItem task)
+        public TaskItem UpdateTaskById(Guid id , TaskItem task)
         {
             var _task = _context.Tasks.FirstOrDefault(n => n.Id == id);
             if(_task != null)
@@ -59,7 +59,7 @@ namespace TodoListApi.data.services
             return _task;
         }
 
-        public void DeleteTaskById(string id)
+        public void DeleteTaskById(Guid id)
         {
             var _task = _context.Tasks.FirstOrDefault(n => n.Id == id);
             if (_task != null)
